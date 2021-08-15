@@ -4,7 +4,7 @@ import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 #from sklearn.externals import joblib
-import pickle
+
 
 # load the model from disk
 filename = 'nlp_model.pkl'
@@ -20,8 +20,8 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
     if request.method == 'POST': 
-        message = request.form['message']
-        data = [message]
+        review = request.form['review']
+        data = [review]
         vect = cv.transform(data).toarray()
         my_prediction = model.predict(vect)
         return render_template('result.html',prediction = my_prediction)
