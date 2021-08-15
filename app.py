@@ -11,7 +11,7 @@ filename = 'nlp_model.pkl'
 model= pickle.load(open(filename, 'rb'))
 cv=pickle.load(open('cv.pkl','rb'))
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='templates')
 
 @app.route('/')
 def home():
