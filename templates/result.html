@@ -6,14 +6,14 @@
 </head>
 <body>
 
-	#<header>
-		#<div class="container">
-		#<div id="brandname">
-			#ML App
-		#</div>
-		#<h2>positive predictor For Movie Review</h2>
+	<header>
+		<div class="container">
+		<div id="brandname">
+			ML App
+		</div>
+		<h2>sentiment predictor For Movie Review</h2>
 		
-	#</div>
+	</div>
 	</header>
 	<p style="color:blue;font-size:20;text-align: center;"><b>Result for Comment</b></p>
 	<div class="results">
@@ -22,7 +22,7 @@
 		
 	{% if prediction == 1%}
 	<h2 class="prediction">prediction:</h2>style="color:red;">positive</h2>
-	#<img class="gif" src="{{url_for('stati, filename='positive.gif') }}" alt="positive">
+	
 	{% elif prediction == 0%}
 	<h2 class="prediction">prediction:</h2>style="color:blue;">negative</h2>
 	#<h2 style="color:blue;">Not a positive(It is a negative)</h2>
