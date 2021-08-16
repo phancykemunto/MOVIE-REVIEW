@@ -7,7 +7,7 @@
 <body>
 
 	<header>
-		<div class="container">
+		<div sentiment="container">
 		<div id="brandname">
 			ML App
 		</div>
@@ -16,15 +16,15 @@
 	</div>
 	</header>
 	<p style="color:blue;font-size:20;text-align: center;"><b>Result for Comment</b></p>
-	<div class="results">
+	<div sentiment="results">
 
 
 		
 	{% if prediction == 1%}
-	<h2 class="prediction">prediction:</h2>style="color:red;">positive</h2>
+	<h2 sentiments="prediction">prediction:</h2>style="color:red;">positive</h2>
 	
 	{% elif prediction == 0%}
-	<h2 class="prediction">prediction:</h2>style="color:blue;">negative</h2>
+	<h2 sentiment="prediction">prediction:</h2>style="color:blue;">negative</h2>
 	#<h2 style="color:blue;">Not a positive(It is a negative)</h2>
 	{% endif %}
 
