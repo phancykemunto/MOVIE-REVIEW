@@ -9,7 +9,7 @@ from sklearn.naive_bayes import MultinomialNB
 # load the model from disk
 filename = 'nlp_model.pkl'
 model= pickle.load(open(filename, 'rb'))
-cv=pickle.load(open('cv.pkl','rb'))
+#cv = pickle.load(open('cv.pkl','rb'))
 
 app = Flask(__name__,template_folder='templates')
 
@@ -20,13 +20,12 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
     if request.method == 'POST': 
-        review = request.form['review']
-        data = [review]
-        vect = cv.transform(data).toarray()
-        my_prediction = model.predict(vect)
-        return render_template('result.html',prediction = my_prediction)
-
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
+       message = request.form['message']
+       data = [message]
+       vect = model.transform(data).toarray()
+       my_prediction = model.predict(vect)
+       return render_template('result.html', prediction = my_prediction) 
+       
+      
+      
+    if __name__ == '__main__': app.run(debug=True)
