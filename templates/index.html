@@ -1,38 +1,36 @@
 <!DOCTYPE html>
 
-<html lang="en" dir="ltr">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Movie Reviews Sentiment Analysis</title>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='food-favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='icon.ico') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-        #<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
-        #<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        
     </head>
 
     <body>
 
         
     	<div class="container">
-            <h2 class='container-heading'><span class="heading_font">MOVIE REVIEW SENTIMENT ANALYSIS</h2>
-            <div class='description'>
-    			<p>Please write your review in the box to check whether the review was Positive or Negative</p>
-    		</div>
+            <h2 class='container-heading'><span><positive>Movie Review</positive></span> class="heading_font">MOVIE REVIEW SENTIMENT ANALYSIS</h2>
+            
     	</div>
-
-        
     	<div class="ml-container">
+            <br><br><br><br>
     		<form action="{{ url_for('predict') }}" method="POST">
-        		<textarea class='message-box' name="review" rows="15" cols="75" placeholder="Enter Your Review Here..."></textarea><br/>
+                <input type="text" name="review" class="input" placeholder="Enter Your Review Here" autocomplete="off" required>
+        		<br>
+                <br>
         		<input type="submit" class="my-cta-button" value="Predict">
         	</form>
     	</div>
 
-        <!-- Footer -->
+       
        <div class='footer'>
            <div class="contact">
-               <a target="_blank" href="https://github.com/phancykemunto"><i class="fab fa-github fa-lg contact-icon"></i></a>
-               <a target="_blank" href=""><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://github.com/phancykemunto"></i></a>
+               <a target="_blank" href=""></i></a>
            </div>
            <p class='footer-description'>© PHANICE KEMUNTO 2021</p>
        </div>
