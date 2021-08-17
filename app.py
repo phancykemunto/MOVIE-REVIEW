@@ -1,31 +1,28 @@
-from flask import Flask,render_template,url_for,request
-import pandas as pd 
+# Importing essential libraries
+from flask import Flask, render_template, request
 import pickle
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
 
+# Load the Multinomial Naive Bayes model and CountVectorizer object from disk
+#filename = 'voting_clf.pkl'
+classifier = pickle.load(open("Review.pkl", 'rb'))
+cv = pickle.load(open('countvector.pkl','rb'))
 
-
-# load the model from disk
-filename = 'nlp_model.pkl'
-model= pickle.load(open(filename, 'rb'))
-#cv = pickle.load(open('cv.pkl','rb'))
-
-app = Flask(__name__,template_folder='templates')
+app = Flask(__name__)
 
 @app.route('/')
 def home():
-	return render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
     if request.method == 'POST': 
-       message = request.form['message']
-       data = [message]
-       vect = model.transform(data).toarray()
-       my_prediction = model.predict(vect)
-       return render_template('result.html', prediction = my_prediction) 
-       
-      
-      
-    if __name__ == '__main__': app.run(debug=True)
+       Review = request.form['Review']
+       data = [Review]
+       vect = cv.transform(data).toarray()
+       my_prediction = classifier.predict(vect)
+       return render_template('result.html',prediction = my_prediction)
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
